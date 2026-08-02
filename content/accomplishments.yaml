@@ -1,6 +1,33 @@
-# One entry per accomplishment. `metric` is optional — leave it out for lines
-# that don't have a hard number. Newest first.
+# One entry per accomplishment. `metric` is optional. Newest first.
 
-- metric: ""
-  description: "Founded and launched Clubhouse Exchange, an AI-powered golf equipment marketplace, from idea to production"
+- metric: "33% → 0%"
+  description: "Unsatisfactory client-call rate at Method CRM in the nine weeks after launching the AI call-audit and prep tooling I built; 'needs coaching or worse' fell 56% → 21%, mean call scores rose 12.9 points"
   date: "2026"
+
+- metric: "8–12 hrs/day"
+  description: "Team-wide pre-call research capacity created by my automated call-prep pipeline — preparation that previously didn't happen at all in a fully billable org"
+  date: "2026"
+
+- metric: "35 sales"
+  description: "Completed sales from 45 listings since launching Clubhouse Exchange in January (≈55% on-platform sell-through), plus a validated fitting-and-procurement service line"
+  date: "2026"
+
+- metric: "63%"
+  description: "Margin on the 15-unit resale operation I ran through my own platform as user zero — then productized the workflow into the reseller sourcing dashboard"
+  date: "2026"
+
+- metric: "12/12"
+  description: "Months above client health-score target across a ~17-account dedicated portfolio at Method CRM, while beating billable utilization targets every month"
+  date: "2025"
+
+- metric: "100+"
+  description: "SMB clients served across logistics, manufacturing, field service, and e-commerce — including 7 external API integrations (UPS, Avalara, Katana MRP, Tableau pipelines)"
+  date: "2023–2026"
+
+- metric: "14+"
+  description: "LLM skills authored encoding Professional Services institutional knowledge into team-wide reusable capability"
+  date: "2026"
+
+- metric: "2"
+  description: "Peer-reviewed publications from MSc research in plant cell biology and biochemistry (McGill University)"
+  date: "2023"

@@ -336,6 +336,87 @@ footer.site-footer {
   margin: 32px 0 12px;
 }
 
+.case-study-detail h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 24px 0 10px;
+}
+
+.case-study-detail details {
+  margin: 12px 0 20px;
+}
+
+.case-study-detail summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.case-study-detail table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 12px;
+}
+
+.case-study-detail table th,
+.case-study-detail table td {
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.case-study-detail table th {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Reusable inline chart embed (see dataviz skill for the method) */
+.chart-embed {
+  --chart-grid: var(--border);
+  --chart-text: var(--text-muted);
+  --chart-series-bad: #e34948;
+  --chart-series-good: #2a78d6;
+  margin: 20px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .chart-embed {
+    --chart-series-bad: #e66767;
+    --chart-series-good: #3987e5;
+  }
+}
+
+.chart-embed svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-embed .chart-legend {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.chart-embed .chart-legend .swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.chart-embed figcaption {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
 .case-study-detail p {
   margin: 0 0 14px;
 }

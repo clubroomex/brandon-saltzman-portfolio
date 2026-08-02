@@ -11,12 +11,12 @@ summary: >
   experience of buying and selling used clubs on eBay and Facebook Marketplace.
 cover_image: ""
 metrics:
-  - value: "TODO"
-    label: "Active listings"
-  - value: "TODO"
-    label: "GMV / sales"
-  - value: "TODO"
-    label: "Registered users"
+  - value: "35"
+    label: "Completed sales since Jan launch"
+  - value: "≈55%"
+    label: "On-platform sell-through"
+  - value: "63%"
+    label: "Margin on user-zero flips"
 ---
 
 ## Problem Statement
@@ -55,9 +55,19 @@ Built and shipped a full-stack marketplace as a solo/lean-team founder, end to e
 
 ## Outcome
 
-TODO: replace with real, specific results — e.g. GMV to date, number of completed
-transactions, seller/buyer growth, time-to-sell vs. eBay/FB Marketplace, repeat usage
-rate, or any press/user testimonials worth quoting.
+Since launching in January 2026:
+
+- **35 completed sales from 45 unique listings** — 25 on-platform and 10 cross-channel —
+  an on-platform sell-through rate of roughly 55%, strong for an early-stage marketplace
+- **33 registered entities** and ~300 unique page views in the last 30 days, driven by
+  two multi-channel campaigns (email flow, LinkedIn, TikTok/Instagram); the LinkedIn
+  campaign alone drove ~300 page views during its run
+- **First complete fitting-and-procurement client** — validating a service line beyond
+  peer-to-peer listings
+- **User zero, profitably**: I ran a 15-unit resale operation through my own platform at
+  a 63% margin to learn the market firsthand, then productized that workflow into the
+  reseller sourcing dashboard (inventory, P&L analytics, buy leads) now part of the
+  product
 
 <!-- To add images: drop files in content/case-studies/images/clubhouse-exchange/
      and reference them here, e.g. ![Seller Hub dashboard](/assets/case-studies/images/clubhouse-exchange/seller-hub.png) -->

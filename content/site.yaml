@@ -1,20 +1,25 @@
 name: "Brandon Saltzman"
-role: "Founder, Clubhouse Exchange"
+role: "Founder, Clubhouse Exchange · Product & Revenue Operations"
 summary: >
-  I build and ship consumer products end to end — product, engineering, and go-to-market.
+  I build and ship products end to end — product, engineering, and go-to-market.
   This is a running record of the problems I've taken on, why I approached them the way
   I did, and what happened as a result.
 bio: >
   I'm a founder and builder who works across the full stack of a product: strategy,
   design, engineering, and the go-to-market motion to get it in front of real users.
-  I like problems where the market is underserved and the tech has caught up enough to
-  fix it properly — golf equipment resale is the current one. TODO: expand with your
-  background (previous roles, what you're looking for next, what kind of problems you
-  want to work on).
+  At Method CRM I've served 100+ SMB clients as a solutions consultant and built the
+  Professional Services team's AI tooling layer — call auditing, automated pre-call
+  intelligence, and a library of LLM skills now used by leadership. Before that I ran
+  data and revenue operations at a fitness club through a growth period, and before
+  that I was a research scientist (MSc, McGill — two peer-reviewed publications).
+  The common thread: find the systemic problem, build the fix, measure whether it
+  worked. I'm looking for product management or revenue operations roles at companies
+  building products that will win in an AI-first landscape.
 skills:
   - Product Strategy
   - 0→1 Product
   - Marketplace & Growth
+  - Revenue Operations
   - Full-Stack Engineering
   - AI/LLM Product
 links:
@@ -23,7 +28,7 @@ links:
   - label: "Clubhouse Exchange"
     url: "https://www.clubhouse-ex.com"
   - label: "LinkedIn"
-    url: "https://www.linkedin.com/in/TODO-add-your-linkedin-slug"
+    url: "https://www.linkedin.com/in/brandoncsaltzman"
   - label: "GitHub"
     url: "https://github.com/clubroomex"
   - label: "Resume"
