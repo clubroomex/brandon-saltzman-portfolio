@@ -19,6 +19,18 @@
 - metric: "3 seminars"
   description: "Led seminars teaching Method staff how to use Claude and other AI tools day-to-day, and own onboarding for the company's broader AI tool rollout"
   date: "2026"
+  detail: |
+    The largest, delivered June 17, 2026, was hands-on enablement rather than
+    a demo: setup and installation (Claude Desktop and Claude Code CLI, and
+    why each), installing the team's shared skill library from a shared repo,
+    live exercises (e.g. loading the internal "Ask Me Anything" skill to
+    answer a real obscure product question on the spot), building a new skill
+    together live using the skill-creation tool, then open build time.
+
+    Design principle I built the session around: *"Spend time on your own
+    trying to solve the problem, then I want someone to demo — even if it's
+    not perfect."* Learning by building, with tolerance for imperfect output,
+    beats a polished demo nobody can reproduce.
 
 - metric: "35 sales"
   description: "Completed sales from 45 listings since launching Clubhouse Exchange in January (≈55% on-platform sell-through), plus a validated fitting-and-procurement service line"

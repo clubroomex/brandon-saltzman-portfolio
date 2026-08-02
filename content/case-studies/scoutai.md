@@ -1,7 +1,7 @@
 ---
 title: "ScoutAI — finding the basketball prospects standard stats miss"
 slug: scoutai
-order: 6
+order: 8
 company: "ScoutAI"
 role: "Founding Team Lead"
 timeframe: "2022"

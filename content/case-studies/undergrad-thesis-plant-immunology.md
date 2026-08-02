@@ -1,7 +1,7 @@
 ---
 title: "Undergraduate thesis — mapping how plant cells coordinate an immune response"
 slug: undergrad-thesis-plant-immunology
-order: 8
+order: 10
 company: "Queen's University"
 role: "Undergraduate Researcher"
 timeframe: "2018–2021"

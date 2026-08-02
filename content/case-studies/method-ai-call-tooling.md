@@ -58,6 +58,16 @@ phases:
         powering automated health reports and the proactive flagging of 10+
         client escalations.
 
+      During testing I caught the audit tool making roughly **70 redundant MCP
+      calls per audited call** — a real rate-limiting and cost-exposure risk
+      before it reached production scale, and a chunk of them weren't even
+      AI-related work, just tokens burned on calls that didn't need an LLM at
+      all. I flagged it, proposed moving aggregation into BigQuery instead, and
+      wrote the team an MCP efficiency guide — tool-by-tool token-cost ratings,
+      four rules for safe querying, and a decision tree mapping questions to the
+      right tool — so the rest of the team wasn't rediscovering the same
+      inefficiency account by account.
+
   - id: outcome
     label: "Outcome"
     body: |
