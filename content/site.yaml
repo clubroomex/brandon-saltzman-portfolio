@@ -1,0 +1,33 @@
+name: "Brandon Saltzman"
+role: "Founder, Clubhouse Exchange"
+summary: >
+  I build and ship consumer products end to end — product, engineering, and go-to-market.
+  This is a running record of the problems I've taken on, why I approached them the way
+  I did, and what happened as a result.
+bio: >
+  I'm a founder and builder who works across the full stack of a product: strategy,
+  design, engineering, and the go-to-market motion to get it in front of real users.
+  I like problems where the market is underserved and the tech has caught up enough to
+  fix it properly — golf equipment resale is the current one. TODO: expand with your
+  background (previous roles, what you're looking for next, what kind of problems you
+  want to work on).
+skills:
+  - Product Strategy
+  - 0→1 Product
+  - Marketplace & Growth
+  - Full-Stack Engineering
+  - AI/LLM Product
+links:
+  - label: "Email"
+    url: "mailto:brandon@clubhouse-ex.com"
+  - label: "Clubhouse Exchange"
+    url: "https://www.clubhouse-ex.com"
+  - label: "LinkedIn"
+    url: "https://www.linkedin.com/in/TODO-add-your-linkedin-slug"
+  - label: "GitHub"
+    url: "https://github.com/clubroomex"
+  - label: "Resume"
+    url: "resume.pdf"
+    # TODO: drop a resume.pdf file into assets/ (it gets copied to _site/ automatically) — see README
+email: "brandon@clubhouse-ex.com"
+last_updated: "August 2026"

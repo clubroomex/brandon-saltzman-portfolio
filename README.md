@@ -1,43 +1,99 @@
 # Brandon Saltzman — Portfolio
 
-Personal portfolio site: case studies, problem statements, rationale, and a running list
-of accomplishments/metrics for job applications.
+Case studies, problem statements, rationale, and a running list of accomplishments/metrics
+for job applications.
 
-Plain HTML/CSS, no build step, deployed via GitHub Pages.
+Content lives as plain Markdown/YAML files in `content/`. A small build script (`build.js`)
+turns that into the static site in `_site/`, which GitHub Actions builds and deploys to
+GitHub Pages automatically on every push to `main`.
 
-## Structure
+**Live site:** https://clubroomex.github.io/brandon-saltzman-portfolio/
 
-- `index.html` — home page: intro, case study list, accomplishments/metrics
-- `case-studies/` — one HTML file per project
-- `case-studies/_template.html` — copy this to start a new case study
-- `assets/style.css` — shared styling (light/dark aware)
+## Editing content (no HTML required)
 
-## Adding a case study
+### Add a new case study
 
-1. Copy `case-studies/_template.html` to `case-studies/your-project-slug.html`
-2. Fill in Problem Statement / Rationale / Approach / Outcome and the metrics row
-3. Add a `.case-study-card` link to it in `index.html` under "Case Studies"
+1. Copy `content/case-studies/clubhouse-exchange.md` to `content/case-studies/your-project-slug.md`
+2. Update the frontmatter (top block between `---`):
+   - `title`, `slug` (must match the filename), `order` (controls sort order on the homepage)
+   - `company`, `role`, `timeframe`, `tags`
+   - `summary` — the one-line teaser shown on the homepage card
+   - `metrics` — the stat row at the top of the case study (`value` + `label` pairs)
+   - `cover_image` — optional, path to a hero image (see below)
+3. Write the body in Markdown using `##` headings. The standard structure that reads
+   well to hiring managers is:
+   - `## Problem Statement` — what was broken/underserved, and how you knew it was real
+   - `## Rationale` — why this problem, why this approach over alternatives
+   - `## Approach` — what you actually did (bullets are fine — be concrete about decisions and tradeoffs)
+   - `## Outcome` — what changed, in numbers where possible
+4. Add a card for it — nothing to do here, actually: the homepage's case study list is
+   generated automatically from every file in `content/case-studies/`.
 
-## Adding an accomplishment
+### Add images
 
-Add a single `<li>` to the `.accomplishments` list in `index.html`. Lead with the metric
-when there's a hard number, e.g.:
+Drop image files into `content/case-studies/images/<your-slug>/`. Reference them in the
+case study's Markdown body like:
 
-```html
-<li>
-  <span><span class="metric">$50K</span> GMV processed in first 90 days</span>
-  <span class="date">2026</span>
-</li>
+```md
+![Seller Hub dashboard](/assets/case-studies/images/your-slug/screenshot.png)
 ```
+
+or set `cover_image: case-studies/images/your-slug/cover.png` in the frontmatter for a
+hero image at the top of the page.
+
+### Add an accomplishment
+
+Add an entry to `content/accomplishments.yaml`:
+
+```yaml
+- metric: "$50K"
+  description: "GMV processed in the first 90 days"
+  date: "2026"
+```
+
+`metric` is optional — omit it for lines without a hard number.
+
+### Edit your bio, skills, or links
+
+All in `content/site.yaml` — name, role, summary, bio, skills chips, and the link row
+(email, LinkedIn, GitHub, resume, etc).
+
+### Add a resume
+
+Drop `resume.pdf` into `assets/` — it's copied into the built site automatically and the
+"Resume" link in `content/site.yaml` already points at it.
 
 ## Local preview
 
-No build step — just open `index.html` in a browser, or serve it:
+```
+npm install        # first time only
+npm run preview     # builds + serves _site/ locally
+```
+
+Or just build without serving:
 
 ```
-python3 -m http.server 8000
+npm run build       # outputs to _site/
 ```
+
+`_site/` is gitignored — it's a build artifact, not something you edit or commit.
 
 ## Deploy
 
-Pushed to `main` on GitHub, served via GitHub Pages (Settings → Pages → Deploy from branch → `main` / `root`).
+Push to `main`. The `.github/workflows/deploy.yml` workflow builds the site and publishes
+it to GitHub Pages automatically — nothing to run manually.
+
+## Structure
+
+```
+content/
+  site.yaml               # name, bio, skills, links
+  accomplishments.yaml     # running metrics/accomplishments list
+  case-studies/
+    *.md                   # one file per project
+    images/<slug>/         # images for that case study
+assets/
+  style.css                # shared styling (light/dark aware)
+build.js                    # generates _site/ from content/
+.github/workflows/deploy.yml # CI build + GitHub Pages deploy
+```
