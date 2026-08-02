@@ -50,7 +50,7 @@ the measurement layer first, rather than guessing at fixes and hoping they worke
 
 ## Outcome
 
-- As a whole, these changes contributed to a **30% increase in ARR**
+- As a whole, these changes contributed to a **30% increase in ARR in 2023**
 - Gave the studio its first metrics-driven view of class and instructor
   performance, replacing scheduling decisions made on instinct
 - Shifted instructor incentives toward higher-margin class formats

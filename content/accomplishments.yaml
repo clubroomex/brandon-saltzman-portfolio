@@ -12,6 +12,14 @@
   description: "Accounts actually growing seats when I instrumented weekly license tracking across Method CRM's 21-consultant org — the finding that redirected the team's expansion strategy from passive to deliberate"
   date: "2026"
 
+- metric: "Company-wide"
+  description: "Presented to the full company on how the AI call-audit and prep tooling I built moves Method's key call-quality metrics"
+  date: "2026"
+
+- metric: "3 seminars"
+  description: "Led seminars teaching Method staff how to use Claude and other AI tools day-to-day, and own onboarding for the company's broader AI tool rollout"
+  date: "2026"
+
 - metric: "35 sales"
   description: "Completed sales from 45 listings since launching Clubhouse Exchange in January (≈55% on-platform sell-through), plus a validated fitting-and-procurement service line"
   date: "2026"
@@ -33,5 +41,5 @@
   date: "2026"
 
 - metric: "2"
-  description: "Peer-reviewed publications from MSc research in plant cell biology and biochemistry (McGill University)"
-  date: "2023"
+  description: "Peer-reviewed publications: plant biosynthesis engineering (Biochemical Engineering Journal) from MSc research at McGill, and plant immune signaling (Plant Physiology) from undergraduate thesis work at Queen's"
+  date: "2025"

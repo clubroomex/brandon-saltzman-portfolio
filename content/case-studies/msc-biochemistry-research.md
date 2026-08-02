@@ -12,12 +12,12 @@ summary: >
   peer-reviewed publication.
 cover_image: ""
 metrics:
-  - value: "CHIL"
-    label: "Key protein identified as required"
-  - value: "Multiple"
-    label: "Functional variants characterized"
+  - value: "42%"
+    label: "Reduction in unwanted lactone byproduct"
+  - value: "33%"
+    label: "Increase in final target-compound titer"
   - value: "Published"
-    label: "Peer-reviewed outcome"
+    label: "Biochemical Engineering Journal, 2025"
 ---
 
 ## Problem Statement
@@ -47,10 +47,15 @@ desired precursors.
 
 ## Outcome
 
-- Established that a specific protein (**CHIL**) is consistently required to
-  enrich production through this pathway
-- Found that different variants specialize differently: some raise output
-  broadly across all compounds through a looser structural mechanism, while
-  others are more targeted — trading overall yield for efficiency toward one
-  specific branch of the pathway
-- The result was accepted for **peer-reviewed publication**
+- Established that a non-catalytic partner protein, **CHIL (chalcone
+  isomerase-like)**, is required to properly direct flux through this pathway —
+  without it, the pathway leaks into an unwanted lactone byproduct
+- Adding CHIL to the enzyme system **reduced that unwanted byproduct by up to
+  42%** while increasing output of the desired intermediates
+- In engineered yeast strains, CHIL unexpectedly **shifted flux partitioning
+  toward the target branch by up to 50%, with a 33% increase in final titer**
+  of the target compound (daidzein) — a stronger and more specific effect than
+  the original hypothesis predicted
+- Published as [*Chalcone isomerase-like (CHIL) impedes the lactone shunt and
+  modulates flux partitioning in isoflavonoid biosynthesis*](https://doi.org/10.1016/j.bej.2025.109853),
+  *Biochemical Engineering Journal* 222 (2025), 109853

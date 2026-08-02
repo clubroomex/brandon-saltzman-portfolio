@@ -7,17 +7,17 @@ role: "Undergraduate Researcher"
 timeframe: "2018–2021"
 tags: ["Research", "Cell Biology", "Computational Biology"]
 summary: >
-  Studied how a plant protein family coordinates the cell's immune response to
-  drought and pathogens, contributing to a published paper on how small genetic
-  differences drive large differences in immune signaling.
+  Studied how a family of plant proteins coordinates the cell's immune response
+  to pathogens, contributing to a published paper on how they work redundantly
+  to control a key immune signaling kinase.
 cover_image: ""
 metrics:
-  - value: "PUB family"
-    label: "Protein family characterized"
-  - value: "Computational"
-    label: "Variant screening approach"
+  - value: "5"
+    label: "PUB proteins mapped by function"
+  - value: "Redundant"
+    label: "Mechanism confirmed across paralogs"
   - value: "Published"
-    label: "Contributed to peer-reviewed paper"
+    label: "Plant Physiology, 2025"
 ---
 
 ## Problem Statement
@@ -37,16 +37,24 @@ research focused on.
 
 ## Approach
 
-- Focused the research on the **PUB protein family**'s role in coordinating the
-  plant's response to drought and pathogens
-- Used computational models to identify the full set of PUB variants and select
-  the most interesting candidates for comparison, based on their protein
-  sequences
+- Focused the research on the **plant U-box (PUB) protein family**'s role in
+  controlling BIK1, a receptor-like cytoplasmic kinase that's a central hub in
+  plant immune signaling
+- Used computational modeling and sequence alignment to map the full set of PUB
+  paralogs and identify the most interesting candidates to test experimentally
 - Contributed findings into a larger team research effort spanning multiple
-  researchers
+  researchers at Queen's University
 
 ## Outcome
 
-- Contributed to a **published paper** characterizing how small changes in the
-  genetic code of these proteins can lead to sizable differences in
-  immunological response
+- The lab's finding: **class IV PUB proteins (PUB22, PUB23, PUB24, PUB25, and
+  PUB26) function redundantly** — multiple paralogs independently phosphorylate
+  and ubiquitinate BIK1, controlling how much of it accumulates in the cell
+- That redundancy explains why knocking out any single PUB alone doesn't fully
+  break immune signaling — the others compensate, which is itself the
+  interesting result
+- Contributed to [*Class IV plant U-box proteins function redundantly to
+  optimize protein accumulation of receptor-like cytoplasmic kinase
+  BIK1*](https://doi.org/10.1093/plphys/kiaf267), published in **Plant
+  Physiology** (2025) — built on undergraduate thesis work, carried to
+  publication years later
