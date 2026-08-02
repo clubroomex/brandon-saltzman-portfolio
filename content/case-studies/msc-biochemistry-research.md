@@ -6,6 +6,7 @@ company: "McGill University"
 role: "MSc Researcher, Plant Biochemistry"
 timeframe: "2021–2023"
 tags: ["Research", "Biochemistry", "Hypothesis-Driven", "Peer-Reviewed"]
+categories: ["Research"]
 summary: >
   Characterized how protein variants scale production of high-value plant
   compounds, working through years of experimental troubleshooting to a

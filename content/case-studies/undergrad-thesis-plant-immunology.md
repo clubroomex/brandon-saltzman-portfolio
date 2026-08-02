@@ -6,6 +6,7 @@ company: "Queen's University"
 role: "Undergraduate Researcher"
 timeframe: "2018–2021"
 tags: ["Research", "Cell Biology", "Computational Biology"]
+categories: ["Research"]
 summary: >
   Studied how a family of plant proteins coordinates the cell's immune response
   to pathogens, contributing to a published paper on how they work redundantly

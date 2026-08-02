@@ -253,6 +253,41 @@ section > h2.section-heading {
   font-size: 0.95rem;
 }
 
+/* Category filter (pure CSS — see filterBar() in build.js) */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-bar input[type="radio"] {
+  display: none;
+}
+
+.filter-chip {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  user-select: none;
+}
+
+.filter-chip:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.card-grid {
+  flex: 1 0 100%;
+  margin-top: 16px;
+}
+
 /* Accomplishments */
 ul.accomplishments {
   list-style: none;
@@ -493,6 +528,87 @@ footer.site-footer {
   font-size: 0.78rem;
   color: var(--text-muted);
   margin-top: 2px;
+}
+
+/* Phase stepper (pure CSS — see phaseStepper() in build.js) */
+.phase-stepper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 24px 0 32px;
+}
+
+.phase-stepper input[type="radio"] {
+  display: none;
+}
+
+.phase-stepper .step {
+  flex: 1 1 auto;
+  min-width: 130px;
+  text-align: left;
+  padding: 12px 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-right: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.phase-stepper .step:last-of-type {
+  border-right: 1px solid var(--border);
+}
+
+.phase-stepper .step:first-of-type {
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.phase-stepper .step:last-of-type {
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.phase-stepper .step:hover {
+  color: var(--text);
+}
+
+.phase-stepper .step-num {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+
+.phase-stepper .step-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.phase-panel {
+  display: none;
+  flex: 1 0 100%;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 26px 28px;
+  background: var(--bg-elevated);
+}
+
+.phase-panel h2:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 640px) {
+  .phase-stepper .step {
+    flex: 1 1 50%;
+    border-right: 1px solid var(--border);
+    border-bottom: none;
+  }
+  .phase-stepper .step:nth-child(-n + 2) {
+    border-top: 1px solid var(--border);
+  }
 }
 
 .todo {

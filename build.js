@@ -61,6 +61,30 @@ function normalizeGalleryEntry(entry, fallbackTitle) {
   return null;
 }
 
+// Turns a category label like "Growth & RevOps" into a CSS-safe token
+// ("growth-and-revops") used for both the filter input id and the card's
+// data-cat attribute.
+function slugifyCategory(name) {
+  return String(name)
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+// Fixed display order for the homepage filter row; any category not listed
+// here (a typo, or a new one someone adds) still appears, just appended
+// alphabetically rather than breaking the build.
+const CATEGORY_ORDER = ["Founder & 0→1", "Product Strategy", "Growth & RevOps", "Research"];
+
+function categoryList(caseStudies) {
+  const present = new Set();
+  for (const cs of caseStudies) for (const c of cs.categories || []) present.add(c);
+  const ordered = CATEGORY_ORDER.filter((c) => present.has(c));
+  const extra = [...present].filter((c) => !CATEGORY_ORDER.includes(c)).sort();
+  return [...ordered, ...extra];
+}
+
 // ---- Load content -------------------------------------------------------
 
 const site = readYaml("site.yaml");
@@ -74,7 +98,11 @@ const caseStudies = fs
     const raw = fs.readFileSync(path.join(caseStudyDir, file), "utf8");
     const { data, content } = matter(raw);
     if (!data.slug) throw new Error(`${file}: missing "slug" in frontmatter`);
-    return { ...data, bodyHtml: marked.parse(content) };
+    const phases = (data.phases || []).map((p) => ({
+      ...p,
+      bodyHtml: marked.parse(p.body || ""),
+    }));
+    return { ...data, phases, bodyHtml: marked.parse(content) };
   })
   .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 
@@ -125,12 +153,60 @@ function caseStudyCard(cs) {
   const tags = (cs.tags || [])
     .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
     .join("");
+  const cats = (cs.categories || []).map(slugifyCategory).join(" ");
   return `
-      <a class="case-study-card" href="case-studies/${cs.slug}.html">
+      <a class="case-study-card" data-cat="${escapeHtml(cats)}" href="case-studies/${cs.slug}.html">
         <div class="card-tags">${tags}</div>
         <h3>${escapeHtml(cs.title)}</h3>
         <p>${escapeHtml(cs.summary || "")}</p>
       </a>`;
+}
+
+// Pure-CSS filter chips: a flat run of hidden radios + their labels + the
+// card grid, all siblings under one flex container, so `:checked ~` alone
+// can both style the active chip and hide non-matching cards — no JS.
+function filterBar(caseStudies, cardsHtml) {
+  const cats = categoryList(caseStudies);
+  if (!cats.length) return `<div class="card-grid">${cardsHtml}</div>`;
+
+  const inputs = [`<input type="radio" name="cs-filter" id="filter-all" checked hidden>`]
+    .concat(
+      cats.map((c) => `<input type="radio" name="cs-filter" id="filter-${slugifyCategory(c)}" hidden>`)
+    )
+    .join("\n    ");
+
+  const labels = [`<label class="filter-chip" for="filter-all">All</label>`]
+    .concat(
+      cats.map((c) => `<label class="filter-chip" for="filter-${slugifyCategory(c)}">${escapeHtml(c)}</label>`)
+    )
+    .join("\n    ");
+
+  const activeSelectors = ["#filter-all:checked ~ label[for=\"filter-all\"]"]
+    .concat(cats.map((c) => `#filter-${slugifyCategory(c)}:checked ~ label[for="filter-${slugifyCategory(c)}"]`))
+    .join(",\n    ");
+
+  const hideRules = cats
+    .map(
+      (c) =>
+        `#filter-${slugifyCategory(c)}:checked ~ .card-grid .case-study-card:not([data-cat~="${slugifyCategory(c)}"]) { display: none; }`
+    )
+    .join("\n    ");
+
+  // inputs, labels, and .card-grid must all be direct children of the same
+  // flex parent — that's what lets `#filter-x:checked ~ .card-grid` and
+  // `#filter-x:checked ~ label[for="filter-x"]` work with zero JS. Visual
+  // grouping (chips on one row, grid below) comes from flex-wrap + the
+  // grid's flex-basis:100%, not from nesting.
+  return `
+    <style>
+    ${activeSelectors} { background: var(--accent); border-color: var(--accent); color: #fff; }
+    ${hideRules}
+    </style>
+    <div class="filter-bar">
+    ${inputs}
+    ${labels}
+    <div class="card-grid">${cardsHtml}</div>
+    </div>`;
 }
 
 function accomplishmentItem(a) {
@@ -150,6 +226,7 @@ function renderIndex() {
     .map((s) => `<span class="chip">${escapeHtml(s)}</span>`)
     .join("");
   const cards = caseStudies.map(caseStudyCard).join("\n");
+  const caseStudySection = filterBar(caseStudies, cards);
   const accItems = accomplishments.map(accomplishmentItem).join("\n");
 
   const photo = site.photo
@@ -176,7 +253,7 @@ function renderIndex() {
 
     <section id="case-studies">
       <h2 class="section-heading">Case Studies</h2>
-      ${cards}
+      ${caseStudySection}
     </section>
 
     <section id="accomplishments">
@@ -204,6 +281,49 @@ function renderIndex() {
     activeHref: "index.html#about",
     bodyHtml: body,
   });
+}
+
+// Pure-CSS tab stepper: same flat-siblings-under-one-flex-parent trick as
+// filterBar() — hidden radios + labels + panels all direct children of
+// .phase-stepper, so `:checked ~` can style the active step and show its
+// panel with zero JS. First phase is selected by default.
+function phaseStepper(phases) {
+  const inputs = phases
+    .map((p, i) => `<input type="radio" name="phase" id="phase-${p.id}" ${i === 0 ? "checked" : ""} hidden>`)
+    .join("\n    ");
+
+  const labels = phases
+    .map(
+      (p, i) => `
+      <label class="step" for="phase-${p.id}">
+        <span class="step-num">${String(i + 1).padStart(2, "0")}</span>
+        <span class="step-label">${escapeHtml(p.label)}</span>
+      </label>`
+    )
+    .join("");
+
+  const panels = phases
+    .map((p) => `<div class="phase-panel" data-phase="phase-${p.id}">${p.bodyHtml}</div>`)
+    .join("\n    ");
+
+  const activeSelectors = phases
+    .map((p) => `#phase-${p.id}:checked ~ label[for="phase-${p.id}"]`)
+    .join(",\n    ");
+
+  const panelSelectors = phases
+    .map((p) => `#phase-${p.id}:checked ~ .phase-panel[data-phase="phase-${p.id}"] { display: block; }`)
+    .join("\n    ");
+
+  return `
+  <style>
+    ${activeSelectors} { background: var(--accent); border-color: var(--accent); color: #fff; }
+    ${panelSelectors}
+  </style>
+  <div class="phase-stepper">
+    ${inputs}
+    ${labels}
+    ${panels}
+  </div>`;
 }
 
 function renderCaseStudy(cs) {
@@ -243,6 +363,13 @@ function renderCaseStudy(cs) {
     .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
     .join(" ");
 
+  // A case study with `phases` in its frontmatter gets a stepper instead of
+  // one long scroll — the markdown body (if any) becomes a short intro above
+  // it. A case study with no phases renders exactly as before.
+  const hasPhases = cs.phases && cs.phases.length;
+  const introHtml = hasPhases && cs.bodyHtml && cs.bodyHtml.trim() ? cs.bodyHtml : "";
+  const mainContent = hasPhases ? introHtml + phaseStepper(cs.phases) : cs.bodyHtml;
+
   const body = `
   <div class="wrap case-study-detail">
     <a class="back" href="../index.html#case-studies">&larr; Back to portfolio</a>
@@ -254,7 +381,7 @@ function renderCaseStudy(cs) {
     <div class="metrics-row">${metricsRow}</div>
     ${gallery}
 
-    ${cs.bodyHtml}
+    ${mainContent}
   </div>`;
 
   return layout({

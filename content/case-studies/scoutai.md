@@ -6,6 +6,7 @@ company: "ScoutAI"
 role: "Founding Team Lead"
 timeframe: "2022"
 tags: ["0→1", "Sports Analytics", "Data Science", "Side Project"]
+categories: ["Founder & 0→1", "Research"]
 summary: >
   Coordinated a 3-person founding team to build a defensive impact statistic
   for basketball prospects — one that outperformed the league's standard

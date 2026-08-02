@@ -6,6 +6,7 @@ company: "Loft Cycle Club"
 role: "Data & Revenue Operations"
 timeframe: "2022–2023"
 tags: ["Data Strategy", "Revenue Operations", "SMB", "Operations"]
+categories: ["Growth & RevOps"]
 summary: >
   Built the data infrastructure and metrics layer for a boutique fitness studio
   to replace gut-feel scheduling with tested decisions, redesigned instructor
