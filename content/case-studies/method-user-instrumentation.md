@@ -1,7 +1,7 @@
 ---
 title: "Instrumenting seat growth at Method CRM — when the data contradicts the assumption"
 slug: method-user-instrumentation
-order: 3
+order: 4
 company: "Method CRM"
 role: "Business Solutions Specialist, Professional Services"
 timeframe: "2026"

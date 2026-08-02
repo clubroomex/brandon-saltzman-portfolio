@@ -1,7 +1,7 @@
 ---
 title: "Loft Cycle Club — turning gut-feel scheduling into a metrics-driven studio"
 slug: loft-cycle-club
-order: 4
+order: 5
 company: "Loft Cycle Club"
 role: "Data & Revenue Operations"
 timeframe: "2022–2023"

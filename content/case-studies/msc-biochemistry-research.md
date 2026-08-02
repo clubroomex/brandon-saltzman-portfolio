@@ -1,7 +1,7 @@
 ---
 title: "MSc research — engineering plant biosynthesis for higher-value compounds"
 slug: msc-biochemistry-research
-order: 6
+order: 7
 company: "McGill University"
 role: "MSc Researcher, Plant Biochemistry"
 timeframe: "2021–2023"
