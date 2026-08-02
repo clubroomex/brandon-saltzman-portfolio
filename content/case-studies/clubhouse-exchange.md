@@ -64,10 +64,11 @@ Since launching in January 2026:
   campaign alone drove ~300 page views during its run
 - **First complete fitting-and-procurement client** — validating a service line beyond
   peer-to-peer listings
-- **User zero, profitably**: I ran a 15-unit resale operation through my own platform at
-  a 63% margin to learn the market firsthand, then productized that workflow into the
-  reseller sourcing dashboard (inventory, P&L analytics, buy leads) now part of the
-  product
+- **User zero, profitably**: since March 2026, I've run a 15-unit resale operation
+  through my own platform — $4,320 revenue, $2,724 profit, a 63.1% margin — to learn
+  the market firsthand, then productized that workflow into the reseller sourcing
+  dashboard (inventory, P&L analytics, buy leads) now part of the product. 14 more
+  units are in inventory with ~$1,290 of projected profit
 
 <!-- To add images: drop files in content/case-studies/images/clubhouse-exchange/
      and reference them here, e.g. ![Seller Hub dashboard](/assets/case-studies/images/clubhouse-exchange/seller-hub.png) -->
