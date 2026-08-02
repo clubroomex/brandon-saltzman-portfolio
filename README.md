@@ -31,15 +31,36 @@ GitHub Pages automatically on every push to `main`.
 
 ### Add images
 
-Drop image files into `content/case-studies/images/<your-slug>/`. Reference them in the
-case study's Markdown body like:
+Drop image files into `content/case-studies/images/<your-slug>/`. Three ways to use them:
 
-```md
-![Seller Hub dashboard](/assets/case-studies/images/your-slug/screenshot.png)
-```
+- Inline in the Markdown body:
 
-or set `cover_image: case-studies/images/your-slug/cover.png` in the frontmatter for a
-hero image at the top of the page.
+  ```md
+  ![Seller Hub dashboard](/assets/case-studies/images/your-slug/screenshot.png)
+  ```
+
+- `cover_image` in frontmatter for a hero image at the top of the page:
+
+  ```yaml
+  cover_image: case-studies/images/your-slug/cover.png
+  ```
+
+- `gallery` in frontmatter for a captioned image set (renders below the metrics row):
+
+  ```yaml
+  gallery:
+    - src: case-studies/images/your-slug/screenshot-1.png
+      alt: "Seller Hub dashboard"
+      caption: "The seller workflow for creating and managing listings"
+    - src: case-studies/images/your-slug/screenshot-2.png
+      alt: "Mobile experience"
+      caption: "The same experience translated to mobile"
+  ```
+
+### Add your photo
+
+Drop a headshot into `assets/` and set `photo: assets/your-photo.jpg` in `content/site.yaml`
+— it renders as a circular avatar above your name.
 
 ### Add an accomplishment
 

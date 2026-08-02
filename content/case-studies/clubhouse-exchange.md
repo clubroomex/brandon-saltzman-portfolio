@@ -9,7 +9,11 @@ tags: ["0→1", "Founder", "Marketplace", "AI Product"]
 summary: >
   Built an AI-powered peer-to-peer marketplace to replace the clunky, fragmented
   experience of buying and selling used clubs on eBay and Facebook Marketplace.
-cover_image: ""
+cover_image: "case-studies/images/clubhouse-exchange/logo.png"
+gallery:
+  - src: "case-studies/images/clubhouse-exchange/flip-dashboard-analytics.png"
+    alt: "Flip Sourcing Dashboard — Sales & Profit analytics view"
+    caption: "The reseller sourcing dashboard's Sales & Profit view — cumulative profit and monthly revenue/cost/profit, built from the user-zero flip operation described below (snapshot from an earlier point in the operation; see Outcome for current figures)"
 metrics:
   - value: "35"
     label: "Completed sales since Jan launch"

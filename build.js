@@ -34,6 +34,33 @@ function escapeHtml(str = "") {
   }[c]));
 }
 
+// Normalizes a content-authored path (e.g. "assets/x.png" or
+// "case-studies/images/slug/x.png") into a URL relative to the page being
+// rendered, given that page's path prefix ("" for root, "../" for a case study).
+function resolveAssetUrl(value, prefix = "") {
+  if (!value) return "";
+  if (/^https?:\/\//i.test(value) || value.startsWith("data:")) return value;
+
+  const cleaned = String(value).trim().replace(/^\/+/, "");
+  if (cleaned.startsWith("assets/")) return `${prefix}${cleaned}`;
+  if (cleaned.startsWith("case-studies/")) return `${prefix}assets/${cleaned}`;
+  return `${prefix}${cleaned}`;
+}
+
+function normalizeGalleryEntry(entry, fallbackTitle) {
+  if (typeof entry === "string") {
+    return { src: entry, alt: fallbackTitle, caption: "" };
+  }
+  if (entry && typeof entry === "object") {
+    return {
+      src: entry.src || entry.path || entry.image || entry.url || "",
+      alt: entry.alt || fallbackTitle,
+      caption: entry.caption || entry.title || "",
+    };
+  }
+  return null;
+}
+
 // ---- Load content -------------------------------------------------------
 
 const site = readYaml("site.yaml");
@@ -125,9 +152,14 @@ function renderIndex() {
   const cards = caseStudies.map(caseStudyCard).join("\n");
   const accItems = accomplishments.map(accomplishmentItem).join("\n");
 
+  const photo = site.photo
+    ? `<img class="avatar" src="${resolveAssetUrl(site.photo, "")}" alt="${escapeHtml(site.name)}">`
+    : "";
+
   const body = `
   <div class="wrap">
     <header class="hero" id="about">
+      ${photo}
       <h1>${escapeHtml(site.name)}</h1>
       <p class="role">${escapeHtml(site.role)}</p>
       <p class="summary">${escapeHtml(site.summary || "").trim()}</p>
@@ -186,7 +218,25 @@ function renderCaseStudy(cs) {
     .join("");
 
   const cover = cs.cover_image
-    ? `<img class="cover-image" src="../${cs.cover_image.replace(/^\//, "")}" alt="${escapeHtml(cs.title)}">`
+    ? `<img class="cover-image" src="${resolveAssetUrl(cs.cover_image, "../")}" alt="${escapeHtml(cs.title)}">`
+    : "";
+
+  const galleryItems = (cs.gallery || [])
+    .map((entry) => normalizeGalleryEntry(entry, cs.title))
+    .filter((entry) => entry && entry.src);
+
+  const gallery = galleryItems.length
+    ? `<div class="case-study-gallery">
+        ${galleryItems
+          .map(
+            (item) => `
+          <figure class="gallery-item">
+            <img src="${resolveAssetUrl(item.src, "../")}" alt="${escapeHtml(item.alt || cs.title)}" loading="lazy">
+            ${item.caption ? `<figcaption>${escapeHtml(item.caption)}</figcaption>` : ""}
+          </figure>`
+          )
+          .join("")}
+      </div>`
     : "";
 
   const tags = (cs.tags || [])
@@ -202,6 +252,7 @@ function renderCaseStudy(cs) {
     <p class="meta">${escapeHtml(cs.role || "")}${cs.timeframe ? " · " + escapeHtml(cs.timeframe) : ""}${cs.company ? " · " + escapeHtml(cs.company) : ""}</p>
     ${cover}
     <div class="metrics-row">${metricsRow}</div>
+    ${gallery}
 
     ${cs.bodyHtml}
   </div>`;

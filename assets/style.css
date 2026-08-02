@@ -117,6 +117,16 @@ header.hero {
   scroll-margin-top: var(--nav-height);
 }
 
+header.hero .avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 0 20px;
+  display: block;
+  border: 1px solid var(--border);
+}
+
 header.hero h1 {
   font-size: 2rem;
   margin: 0 0 8px;
@@ -326,6 +336,30 @@ footer.site-footer {
   border: 1px solid var(--border);
   margin: 20px 0 8px;
   display: block;
+}
+
+.case-study-detail .case-study-gallery {
+  display: grid;
+  gap: 16px;
+  margin: 8px 0 28px;
+}
+
+.case-study-detail .gallery-item {
+  margin: 0;
+}
+
+.case-study-detail .gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.case-study-detail .gallery-item figcaption {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
 }
 
 .case-study-detail h2 {
