@@ -88,7 +88,10 @@ function categoryList(caseStudies) {
 // ---- Load content -------------------------------------------------------
 
 const site = readYaml("site.yaml");
-const accomplishments = readYaml("accomplishments.yaml") || [];
+const accomplishments = (readYaml("accomplishments.yaml") || []).map((a) => ({
+  ...a,
+  detailHtml: a.detail ? marked.parse(a.detail) : "",
+}));
 
 const caseStudyDir = path.join(CONTENT, "case-studies");
 const caseStudies = fs
@@ -209,13 +212,24 @@ function filterBar(caseStudies, cardsHtml) {
     </div>`;
 }
 
-function accomplishmentItem(a) {
-  const metric = a.metric ? `<span class="metric">${escapeHtml(a.metric)}</span> ` : "";
+function accomplishmentCard(a) {
+  const metric = a.metric ? `<div class="accomplishment-metric">${escapeHtml(a.metric)}</div>` : "";
+  const details = a.detailHtml
+    ? `
+      <details>
+        <summary>More details</summary>
+        <div class="accomplishment-detail">${a.detailHtml}</div>
+      </details>`
+    : "";
   return `
-        <li>
-          <span>${metric}${escapeHtml(a.description)}</span>
+      <div class="accomplishment-card">
+        ${metric}
+        <div class="accomplishment-body">
+          <p>${escapeHtml(a.description)}</p>
           <span class="date">${escapeHtml(a.date || "")}</span>
-        </li>`;
+        </div>
+        ${details}
+      </div>`;
 }
 
 function renderIndex() {
@@ -227,7 +241,7 @@ function renderIndex() {
     .join("");
   const cards = caseStudies.map(caseStudyCard).join("\n");
   const caseStudySection = filterBar(caseStudies, cards);
-  const accItems = accomplishments.map(accomplishmentItem).join("\n");
+  const accItems = accomplishments.map(accomplishmentCard).join("\n");
 
   const photo = site.photo
     ? `<img class="avatar" src="${resolveAssetUrl(site.photo, "")}" alt="${escapeHtml(site.name)}">`
@@ -258,9 +272,9 @@ function renderIndex() {
 
     <section id="accomplishments">
       <h2 class="section-heading">Accomplishments &amp; Metrics</h2>
-      <ul class="accomplishments">
+      <div class="accomplishments-grid">
         ${accItems}
-      </ul>
+      </div>
     </section>
 
     <section id="contact">

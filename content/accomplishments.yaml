@@ -33,8 +33,32 @@
   date: "2025"
 
 - metric: "100+"
-  description: "SMB clients served across logistics, manufacturing, field service, and e-commerce — including 7 external API integrations (UPS, Avalara, Katana MRP, Tableau pipelines)"
+  description: "SMB clients served across logistics, manufacturing, field service, and e-commerce as a Method CRM solutions consultant"
   date: "2023–2026"
+
+- metric: "7"
+  description: "External API integrations built for Method CRM clients — shipping, tax, and manufacturing systems wired directly into their CRM workflow"
+  date: "2023–2026"
+  detail: |
+    - **UPS Shipping API** (OAuth2/REST) — shipment creation from the invoice
+      screen, tracking and cost retrieval, Base64 label generation, and a full
+      audit log. Replaced a legacy on-premise QuickBooks Shipping Manager/VPN
+      dependency; built the payload framework to extend to FedEx next.
+    - **Avalara AvaTax REST v2** — across two client accounts, including auth,
+      full transaction-model mapping, and commit lifecycle. Diagnosed and fixed
+      sandbox/production mismatches and authentication errors.
+    - **Katana MRP** — sales order endpoint integration and payload diagnosis
+      for a manufacturing client.
+    - **Google Apps Script → Sheets → Tableau** — automated profit/cost/revenue
+      reporting pipeline.
+    - **AWS CloudFront signed-URL delivery** and an **image-resize proxy** for
+      two other clients' document and photo workflows.
+
+    The pattern worth noting: after building the Avalara integration for one
+    client, I recognized the same `"type": "SalesOrder"` misconfiguration
+    recurring across multiple independent client integrations — and flagged it
+    as a systemic setup gap to fix once, rather than patching it silently
+    account by account.
 
 - metric: "14+"
   description: "LLM skills authored encoding Professional Services institutional knowledge into team-wide reusable capability"

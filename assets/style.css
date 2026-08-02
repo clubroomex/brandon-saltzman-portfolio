@@ -289,36 +289,69 @@ section > h2.section-heading {
 }
 
 /* Accomplishments */
-ul.accomplishments {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.accomplishments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
 }
 
-ul.accomplishments li {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  gap: 12px;
-  font-size: 0.95rem;
-  align-items: baseline;
+.accomplishment-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
 }
 
-ul.accomplishments li:last-child {
-  border-bottom: none;
-}
-
-ul.accomplishments li .metric {
+.accomplishment-metric {
   color: var(--gold);
   font-weight: 700;
-  white-space: nowrap;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 4px;
 }
 
-ul.accomplishments li .date {
+.accomplishment-body p {
+  margin: 0 0 6px;
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.accomplishment-body .date {
   color: var(--text-muted);
-  font-size: 0.8rem;
-  white-space: nowrap;
-  margin-left: auto;
+  font-size: 0.78rem;
+}
+
+.accomplishment-card details {
+  margin-top: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.accomplishment-card summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.accomplishment-detail {
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.accomplishment-detail p {
+  margin: 0 0 10px;
+}
+
+.accomplishment-detail ul {
+  margin: 0 0 10px;
+  padding-left: 18px;
+}
+
+.accomplishment-detail li {
+  margin-bottom: 4px;
 }
 
 /* Contact */

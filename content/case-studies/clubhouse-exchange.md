@@ -123,4 +123,44 @@ phases:
         workflow into the reseller sourcing dashboard (inventory, P&L analytics,
         buy leads) now part of the product. 14 more units are in inventory with
         ~$1,290 of projected profit
+
+      <figure class="chart-embed">
+        <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of monthly resale revenue from the user-zero flip operation: $150 in March, $75 in May, $2,140 in June, $1,255 in July 2026 (no sales in April)">
+          <g style="stroke:var(--chart-grid);stroke-width:1">
+            <line x1="60" y1="250" x2="600" y2="250"/>
+            <line x1="60" y1="208" x2="600" y2="208"/>
+            <line x1="60" y1="166" x2="600" y2="166"/>
+            <line x1="60" y1="124" x2="600" y2="124"/>
+            <line x1="60" y1="82" x2="600" y2="82"/>
+            <line x1="60" y1="40" x2="600" y2="40"/>
+          </g>
+          <g style="fill:var(--chart-text);font-size:11px" text-anchor="end">
+            <text x="54" y="254">$0</text>
+            <text x="54" y="212">$500</text>
+            <text x="54" y="170">$1,000</text>
+            <text x="54" y="128">$1,500</text>
+            <text x="54" y="86">$2,000</text>
+            <text x="54" y="44">$2,500</text>
+          </g>
+          <g style="fill:var(--chart-text);font-size:11px" text-anchor="middle">
+            <text x="127.5" y="268">Mar</text>
+            <text x="262.5" y="268">May</text>
+            <text x="397.5" y="268">Jun</text>
+            <text x="532.5" y="268">Jul</text>
+          </g>
+          <g style="fill:var(--accent)">
+            <rect x="92.5" y="237.4" width="70" height="12.6" rx="3"><title>March 2026: $150</title></rect>
+            <rect x="227.5" y="243.7" width="70" height="6.3" rx="3"><title>May 2026: $75</title></rect>
+            <rect x="362.5" y="70.2" width="70" height="179.8" rx="3"><title>June 2026: $2,140</title></rect>
+            <rect x="497.5" y="144.6" width="70" height="105.4" rx="3"><title>July 2026: $1,255</title></rect>
+          </g>
+          <g style="fill:var(--text);font-size:12px;font-weight:600" text-anchor="middle">
+            <text x="127.5" y="231">$150</text>
+            <text x="262.5" y="237.7">$75</text>
+            <text x="397.5" y="64.2">$2,140</text>
+            <text x="532.5" y="138.6">$1,255</text>
+          </g>
+        </svg>
+        <figcaption>Monthly revenue from the 14 flip sales completed through early July 2026 (no sales in April). Source: transaction-level sales records, matches the Flip Sourcing Dashboard screenshot above.</figcaption>
+      </figure>
 ---
