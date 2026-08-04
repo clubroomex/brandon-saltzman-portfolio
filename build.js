@@ -133,6 +133,73 @@ function nav(prefix, activeHref) {
   </nav>`;
 }
 
+// Fire-and-forget view/click beacon to the internal admin dashboard (see
+// chex-dashboard's /api/portfolio-events + /portfolio page). Reads a `?ref=`
+// query param off the first link a recipient opens (e.g. `?ref=acme-corp`,
+// generated from the dashboard's "tracked link" panel) so views/clicks can
+// be attributed to a specific recruiter/company, not just an anonymous
+// session. No cookies, no third-party script — just one small inline block.
+const TRACKING_SCRIPT = `
+  <script>
+  (function () {
+    var ENDPOINT = "https://chex-dashboard.vercel.app/api/portfolio-events";
+    var params = new URLSearchParams(window.location.search);
+    var ref = params.get("ref");
+    if (ref) { try { sessionStorage.setItem("chex_ref", ref); } catch (e) {} }
+    var storedRef = null;
+    try { storedRef = sessionStorage.getItem("chex_ref"); } catch (e) {}
+
+    var sid;
+    try {
+      sid = sessionStorage.getItem("chex_sid");
+      if (!sid) {
+        sid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : (Date.now() + "-" + Math.random().toString(16).slice(2));
+        sessionStorage.setItem("chex_sid", sid);
+      }
+    } catch (e) {
+      sid = Date.now() + "-" + Math.random().toString(16).slice(2);
+    }
+
+    function send(eventType, target) {
+      var payload = JSON.stringify({
+        event_type: eventType,
+        ref: storedRef,
+        session_id: sid,
+        path: window.location.pathname,
+        target: target ? String(target).slice(0, 200) : null,
+        referrer: document.referrer || null,
+        user_agent: navigator.userAgent || null,
+      });
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(ENDPOINT, new Blob([payload], { type: "application/json" }));
+          return;
+        }
+      } catch (e) {}
+      try {
+        fetch(ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: payload, keepalive: true });
+      } catch (e) {}
+    }
+
+    send("view");
+
+    document.addEventListener("click", function (evt) {
+      var a = evt.target.closest && evt.target.closest("a[href]");
+      if (!a) return;
+      var label = (a.textContent || "").trim().replace(/\\s+/g, " ").slice(0, 80);
+      send("click", a.getAttribute("href") + (label ? " — " + label : ""));
+    });
+
+    document.addEventListener("change", function (evt) {
+      var el = evt.target;
+      if (!(el && el.matches && el.matches('input[type="radio"][name="cs-filter"], input[type="radio"][name="phase"]'))) return;
+      var lbl = document.querySelector('label[for="' + el.id + '"]');
+      var text = lbl ? lbl.textContent.trim() : el.id;
+      send("click", (el.name === "cs-filter" ? "filter: " : "phase: ") + text);
+    });
+  })();
+  </script>`;
+
 function layout({ title, description, prefix, activeHref, bodyHtml, extraHead = "" }) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -147,6 +214,7 @@ function layout({ title, description, prefix, activeHref, bodyHtml, extraHead = 
 <body>
   ${nav(prefix, activeHref)}
   ${bodyHtml}
+  ${TRACKING_SCRIPT}
 </body>
 </html>
 `;
