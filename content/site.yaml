@@ -33,7 +33,6 @@ links:
   - label: "GitHub"
     url: "https://github.com/clubroomex"
   - label: "Resume"
-    url: "resume.pdf"
-    # TODO: drop a resume.pdf file into assets/ (it gets copied to _site/ automatically) — see README
+    url: "assets/resume.pdf"
 email: "brandon@clubhouse-ex.com"
 last_updated: "August 2026"
