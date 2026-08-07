@@ -59,3 +59,10 @@ research focused on.
   BIK1*](https://doi.org/10.1093/plphys/kiaf267), published in **Plant
   Physiology** (2025) — built on undergraduate thesis work, carried to
   publication years later
+
+The same pattern shows up in every case study on this site: narrow a wide
+field of candidates down computationally, test the most promising ones
+experimentally, and only trust the mechanism once the data backs it up. Here
+that meant modeling five PUB paralogs down to the ones worth testing in the
+lab; elsewhere it's meant instrumenting an assumption before building around
+it.

@@ -66,7 +66,9 @@ phases:
         declined (235 → 222), which this instrumentation caught directly rather
         than waiting for the next quarterly readout
       - ~236 licensed seats under active management (net of duplicate restore
-        accounts) across ~19 distinct customers
+        accounts) across ~19 distinct customers — 23 accounts in the finding
+        above map to those same ~19 customers, since a few customers have
+        split account records
 
       I'd rather report "here's what's actually happening and it contradicts
       what we assumed" than a growth number that doesn't hold up past one

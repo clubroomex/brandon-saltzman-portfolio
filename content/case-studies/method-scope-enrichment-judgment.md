@@ -23,6 +23,13 @@ phases:
   - id: problem-discovery
     label: "Problem Discovery"
     body: |
+      > "The AI will miss context — most of the time needed here goes into
+      > helping the rep complete the work, not scoping it."
+
+      That's the doubt I wrote down before building anything, on a tool I'd
+      already fully scoped. Here's the problem I was trying to solve, and why
+      I ended up agreeing with my own skepticism.
+
       Handing off scoped work to junior reps or whoever had capacity was hard
       — which suppressed how much senior reps scoped and delegated at all, and
       capped how much project-manager-style growth was available to them.

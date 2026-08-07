@@ -26,6 +26,24 @@ phases:
   - id: research
     label: "Research"
     body: |
+      The idea started with a specific bad experience, not a market thesis. I
+      was helping a friend shop for a new driver — we checked Golf Town, then
+      checked Facebook Marketplace for a used one. Some of the Marketplace
+      listings were priced *higher* than a brand-new driver on Golf Town's
+      shelf. That gap — no way for a buyer or seller to know what a used club
+      is actually worth — was the spark.
+
+      I went looking for prior art: general price-discovery marketplaces
+      (AutoTrader, CarGurus, SeatGeek) that help buyers and sellers land on a
+      fair price for whatever they're trading. Then I looked for a
+      golf-specific version of that pattern and found the field was thin —
+      eBay, Facebook Marketplace, and SidelineSwap were the closest comps, and
+      none of them helped a seller price a listing, helped a buyer spot a good
+      deal, or helped someone figure out what club they should even be buying
+      in the first place. That last gap stuck with me specifically: a fitting
+      only tells you what's best among clubs currently on the shelf — it
+      doesn't answer "what if the right fit for me is a $50 used driver?"
+
       The used golf equipment market is large but fragmented and low-trust. Sellers
       list on eBay or Facebook Marketplace, where buyers can't verify condition
       claims, pricing is inconsistent and often mispriced, and there's no
@@ -111,7 +129,7 @@ phases:
       - **35 completed sales from 45 unique listings** — 25 on-platform and 10
         cross-channel — an on-platform sell-through rate of roughly 55%, strong
         for an early-stage marketplace
-      - **33 registered entities** and ~300 unique page views in the last 30 days,
+      - **33 new signed-up accounts** and ~300 unique page views in the last 30 days,
         driven by two multi-channel campaigns (email flow, LinkedIn,
         TikTok/Instagram); the LinkedIn campaign alone drove ~300 page views
         during its run
@@ -123,6 +141,15 @@ phases:
         workflow into the reseller sourcing dashboard (inventory, P&L analytics,
         buy leads) now part of the product. 14 more units are in inventory with
         ~$1,290 of projected profit
+
+      Worth being upfront about scope: this early in the marketplace's life, a
+      large share of total platform activity — not just the user-zero flips —
+      is inventory I sourced and own myself, since seeding the supply side with
+      owned stock is the standard way to bootstrap a two-sided marketplace
+      before third-party sellers show up in volume. I'm not publishing a
+      seller-only margin breakdown while the company is private, so the honest
+      read today is "the flip economics work when I control sourcing," not yet
+      "proven at scale for an arbitrary third-party seller."
 
       <figure class="chart-embed">
         <svg viewBox="0 0 640 300" role="img" aria-label="Bar chart of monthly resale revenue from the user-zero flip operation: $150 in March, $75 in May, $2,140 in June, $1,255 in July 2026 (no sales in April)">

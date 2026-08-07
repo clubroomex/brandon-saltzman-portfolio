@@ -39,7 +39,9 @@ desired precursors.
 ## Approach
 
 - Characterized how different variants of the target protein affected the scale
-  of precursor production
+  of precursor production — in practice, comparing several versions of the
+  protein side by side to see which ones pushed more material toward the
+  target compound
 - Developed assays to identify both the mechanism and the outcome of each variant
 - Worked through significant experimental troubleshooting for most of the
   program: inconsistent gene expression in plants, unclear protein synthesis
@@ -60,3 +62,9 @@ desired precursors.
 - Published as [*Chalcone isomerase-like (CHIL) impedes the lactone shunt and
   modulates flux partitioning in isoflavonoid biosynthesis*](https://doi.org/10.1016/j.bej.2025.109853),
   *Biochemical Engineering Journal* 222 (2025), 109853
+
+The throughline to product work: form a specific, falsifiable hypothesis,
+build the smallest test that could disprove it, and let the result override
+your priors when it diverges — the 50% flux-shift here came in well past what
+the original hypothesis predicted, and the response was to update the model,
+not the data.
