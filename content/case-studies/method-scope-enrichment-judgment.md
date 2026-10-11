@@ -12,6 +12,7 @@ summary: >
   junior reps — then wrote down, before building it, why it likely wouldn't
   deliver, and didn't build it.
 cover_image: ""
+headline_metric: 3   # which metric (1-based) leads on the homepage card
 metrics:
   - value: "Scoped"
     label: "Status — deliberately not built"

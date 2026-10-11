@@ -12,6 +12,7 @@ summary: >
   movement — and used it to show that assumed organic growth wasn't actually
   happening, redirecting the team's expansion strategy.
 cover_image: ""
+headline_metric: 2   # which metric (1-based) leads on the homepage card
 metrics:
   - value: "21"
     label: "Consultants instrumented org-wide"

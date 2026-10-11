@@ -19,7 +19,14 @@ GitHub Pages automatically on every push to `main`.
    - `company`, `role`, `timeframe`, `tags`
    - `summary` — the one-line teaser shown on the homepage card
    - `metrics` — the stat row at the top of the case study (`value` + `label` pairs)
-   - `cover_image` — optional, path to a hero image (see below)
+   - `categories` — which homepage filter chips the card appears under
+   - `cover_image` — optional, the project's logo (shown as a tile on the card and page header)
+   - `hero_image` — optional, a product screenshot shown in a browser frame on the card and
+     at the top of the page (best visual — use one whenever you have it)
+   - `live_url` — optional, shown in the page's facts row and the browser frame's address bar
+   - `stack` — optional, "Built with" chips
+   - `headline_metric` — optional, which metric (1-based) leads on the homepage card;
+     cards with no images become a colored "poster" built from this number
 3. Write the body in Markdown using `##` headings. The standard structure that reads
    well to hiring managers is:
    - `## Problem Statement` — what was broken/underserved, and how you knew it was real
@@ -36,16 +43,20 @@ Drop image files into `content/case-studies/images/<your-slug>/`. Three ways to 
 - Inline in the Markdown body:
 
   ```md
-  ![Seller Hub dashboard](/assets/case-studies/images/your-slug/screenshot.png)
+  ![Seller Hub dashboard](../assets/case-studies/images/your-slug/screenshot.png)
   ```
 
-- `cover_image` in frontmatter for a hero image at the top of the page:
+- `hero_image` (screenshot) and/or `cover_image` (logo) in frontmatter:
 
   ```yaml
-  cover_image: case-studies/images/your-slug/cover.png
+  hero_image: case-studies/images/your-slug/screenshot.png
+  cover_image: case-studies/images/your-slug/logo.png
   ```
 
-- `gallery` in frontmatter for a captioned image set (renders below the metrics row):
+- `gallery` in frontmatter for a captioned image set (renders in a "Product" section at
+  the end). Images get a browser-window frame by default; add `frame: phone` for a
+  phone mockup or `frame: none` for a plain image, and `url:` to fill the address bar.
+  Screenshots look best captured at 2x (1440px wide for desktop, 390px for phones):
 
   ```yaml
   gallery:
@@ -60,7 +71,7 @@ Drop image files into `content/case-studies/images/<your-slug>/`. Three ways to 
 ### Add your photo
 
 Drop a headshot into `assets/` and set `photo: assets/your-photo.jpg` in `content/site.yaml`
-— it renders as a circular avatar above your name.
+— it renders as the large portrait in the homepage hero.
 
 ### Add an accomplishment
 
@@ -76,8 +87,12 @@ Add an entry to `content/accomplishments.yaml`:
 
 ### Edit your bio, skills, or links
 
-All in `content/site.yaml` — name, role, summary, bio, skills chips, and the link row
-(email, LinkedIn, GitHub, resume, etc).
+All in `content/site.yaml` — name, role, status pill, summary, hero `highlights` (proof
+points under the hero), the "How I work" `process` steps, bio, skills chips, and the link
+row (email, LinkedIn, GitHub, resume, etc).
+
+The build never publishes placeholders: links whose URL contains `TODO` (or point to a
+missing file) and metrics whose value is `TODO` are hidden, and `npm run build` lists them.
 
 ### Add a resume
 
@@ -115,6 +130,7 @@ content/
     images/<slug>/         # images for that case study
 assets/
   style.css                # shared styling (light/dark aware)
+  site.js                  # scroll reveal + section highlighting (optional enhancement)
 build.js                    # generates _site/ from content/
 .github/workflows/deploy.yml # CI build + GitHub Pages deploy
 ```

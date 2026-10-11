@@ -14,6 +14,7 @@ summary: >
   a defensive signal that outperformed the league's standard advanced metric
   at identifying undervalued defenders.
 cover_image: "case-studies/images/scoutai/cover.png"
+headline_metric: 3   # which metric (1-based) leads on the homepage card
 metrics:
   - value: "4"
     label: "Skill categories modeled"

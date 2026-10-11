@@ -11,7 +11,24 @@ summary: >
   Built an AI-powered peer-to-peer marketplace to replace the clunky, fragmented
   experience of buying and selling used clubs on eBay and Facebook Marketplace.
 cover_image: "case-studies/images/clubhouse-exchange/logo.png"
+# Product screenshot shown on the homepage card and at the top of this page.
+hero_image: "case-studies/images/clubhouse-exchange/home-desktop.jpg"
+live_url: "https://www.clubhouse-ex.com"
+stack: ["Next.js 15", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "NextAuth", "Capacitor", "LLM APIs"]
+# Gallery images get a browser frame by default; `frame: phone` or `frame: none` to change it.
 gallery:
+  - src: "case-studies/images/clubhouse-exchange/listings-desktop.jpg"
+    url: "clubhouse-ex.com/listings"
+    alt: "Browse listings page with spec and condition details on every card"
+    caption: "Every listing carries golf-specific specs (shaft, loft) and a standardized condition grade"
+  - src: "case-studies/images/clubhouse-exchange/club-finder-desktop.jpg"
+    url: "clubhouse-ex.com/club-finder"
+    alt: "AI club fitter chat that reads live inventory"
+    caption: "The AI club fitter reads live inventory and turns a golfer's miss, budget and shaft into a shortlist"
+  - src: "case-studies/images/clubhouse-exchange/home-mobile.jpg"
+    frame: phone
+    alt: "Clubhouse Exchange home screen on mobile"
+    caption: "The same codebase ships to iOS and Android via Capacitor"
   - src: "case-studies/images/clubhouse-exchange/flip-dashboard-analytics.png"
     alt: "Flip Sourcing Dashboard — Sales & Profit analytics view"
     caption: "The reseller sourcing dashboard's Sales & Profit view — cumulative profit and monthly revenue/cost/profit, built from the user-zero flip operation described in Outcome (snapshot from an earlier point in the operation; see Outcome for current figures)"

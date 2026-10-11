@@ -13,6 +13,7 @@ summary: >
   the booking system, and a ChatGPT/Claude connector), directing an AI coding
   agent from first commit to deployed app in two days.
 cover_image: "case-studies/images/loft-fitness-hub/cover.png"
+hero_image: "case-studies/images/loft-fitness-hub/board.jpg"
 gallery:
   - src: case-studies/images/loft-fitness-hub/board.jpg
     alt: "Project board for the Danforth Reformer launch"

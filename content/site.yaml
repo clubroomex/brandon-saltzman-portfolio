@@ -1,6 +1,32 @@
 name: "Brandon Saltzman"
 photo: "assets/brandon-headshot.jpg"
 role: "Founder, Clubhouse Exchange · Product & Revenue Operations"
+# Small pill above your name in the hero. Delete the line to hide it.
+status: "Open to product & RevOps roles"
+# Proof points shown as a strip under the hero — keep them to real, sourced numbers.
+highlights:
+  - value: "35"
+    label: "Marketplace sales since launching Clubhouse Exchange in January"
+  - value: "33% → 0%"
+    label: "Unsatisfactory client-call rate after the AI tooling I built at Method"
+  - value: "100+"
+    label: "SMB clients served as a Method CRM solutions consultant"
+  - value: "2"
+    label: "Peer-reviewed publications from my research years"
+# "How I work" steps on the homepage. icon: search | compass | build | chart
+process:
+  - icon: search
+    title: "Find the real problem"
+    text: "Talk to users, read the data, benchmark competitors, and size the gap before building anything."
+  - icon: compass
+    title: "Make the call"
+    text: "Pick the narrowest wedge that proves the thesis, and write down why, including what not to build."
+  - icon: build
+    title: "Ship end to end"
+    text: "Design, engineering and rollout: one person who can carry an idea all the way to users."
+  - icon: chart
+    title: "Measure and iterate"
+    text: "Instrument the result, report it honestly, and let the numbers decide what's next."
 summary: >
   I build and ship products end to end — product, engineering, and go-to-market.
   This is a running record of the problems I've taken on, why I approached them the way
